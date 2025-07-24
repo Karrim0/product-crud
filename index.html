@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD-APP</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="w-75 mx-auto py-5">
+        <div class="form-floating mb-3">
+            <input oninput="validationName()" type="text" class="form-control border-0 border-bottom" id="productName" placeholder="Product Name :">
+            <label for="productName">Product Name :</label>
+            <div id="alertMsg" class="alert alert-danger d-none mt-2" role="alert">⚠️ Invalid product name. It must contain 3–10 letters, up to 3 digits, and may include a dash (-).
+</div>
+
+        </div>
+        <div class="form-floating mb-3">
+            <input oninput="validatePrice()" type="number" class="form-control border-0 border-bottom" id="productPrice" placeholder="Product Price :">
+            <label for="productPrice">Product Price :</label>
+            <div id="priceAlert" class="alert alert-danger d-none mt-2" role="alert">
+                ⚠️ Invalid price. Please enter a whole number between 2000 and 80000.
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input oninput="validateCategory()" list="Categories" type="text" class="form-control border-0 border-bottom" id="productCategory" placeholder="Product Name :">
+            <label for="productCategory">Product Category :</label>
+
+            <datalist id="Categories">
+                <option value="TV">
+                <option value="Mobile">
+                <option value="Laptop">
+                <option value="Screens">
+                <option value="Electronics">
+            </datalist>
+                        <div id="categoryAlert" class="alert alert-danger d-none mt-2" role="alert">
+                ⚠️ Invalid category. Only: mobile, screens, tv, electronics, or laptop are allowed.
+            </div>
+        </div>
+                <div class="form-floating mb-3">
+            <textarea type="text" class="form-control border-0 border-bottom" id="productDescription" placeholder="Product Description :"></textarea>
+            <label for="productDescription">Product Description :</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="file" class="form-control border-0 border-bottom" id="productImage" placeholder="Product Image :">
+            <label for="productImage">Product Image :</label>
+        </div>
+        <button id="addBtn" onclick="addProduct()" class="btn btn-info rounded-0 text-white">Add Product</button>
+        <button id="updateBtn" onclick="updateProduct()" class="btn btn-warning rounded-0 text-white d-none">Update Product</button>
+    </div>
+    <section class=" p-5">
+        <input oninput="searchProduct()"  id="searchForm" placeholder="Search by name ..." type="text" class="form-control w-75 m-auto">
+        <div id="display" class="row productss ">
+        </div>
+    </section>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
